@@ -12,7 +12,7 @@ export class VideoDownloadComponent implements OnInit {
 
   @ViewChild('modal') modal: ModalDirective
 
-  downloadType: 'direct' | 'torrent' | 'magnet' = 'torrent'
+  downloadType: 'direct' | 'instant' | 'torrent' | 'magnet' = 'torrent'
   resolutionId: number | string = -1
 
   constructor () {
@@ -41,6 +41,7 @@ export class VideoDownloadComponent implements OnInit {
       return
     }
 
+    let newtab: boolean = false
     const link = (() => {
       switch (this.downloadType) {
         case 'direct': {
@@ -52,8 +53,16 @@ export class VideoDownloadComponent implements OnInit {
         case 'magnet': {
           return file.magnetUri
         }
+        case 'instant': {
+          newtab = true
+          return `https://instant.io/#${file.magnetUri}`
+        }
       }
     })()
-    window.location.assign(link)
+    if(newtab){
+      window.open(link)
+    } else {
+      window.location.assign(link)
+    }
   }
 }
