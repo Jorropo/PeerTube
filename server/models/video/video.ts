@@ -910,23 +910,45 @@ export class VideoModel extends Model<VideoModel> {
     const escapedSearch = VideoModel.sequelize.escape(options.search)
     const escapedLikeSearch = VideoModel.sequelize.escape('%' + options.search + '%')
     if (options.search) {
-      whereAnd.push(
-        {
-          id: {
-            [ Sequelize.Op.in ]: Sequelize.literal(
-              '(' +
-                'SELECT "video"."id" FROM "video" WHERE ' +
-                'lower(immutable_unaccent("video"."name")) % lower(immutable_unaccent(' + escapedSearch + ')) OR ' +
-                'lower(immutable_unaccent("video"."name")) LIKE lower(immutable_unaccent(' + escapedLikeSearch + '))' +
-                'UNION ALL ' +
-                'SELECT "video"."id" FROM "video" LEFT JOIN "videoTag" ON "videoTag"."videoId" = "video"."id" ' +
-                'INNER JOIN "tag" ON "tag"."id" = "videoTag"."tagId" ' +
-                'WHERE "tag"."name" = ' + escapedSearch +
-              ')'
-            )
+      let a = await Sequelize.query('SELECT "id" FROM "server" WHERE "host" = ' + escapedSearch)
+      if (a.length == 0) {
+        whereAnd.push(
+          {
+            id: {
+              [ Sequelize.Op.in ]: Sequelize.literal(
+                '(' +
+                  'SELECT "video"."id" FROM "video" WHERE ' +
+                  'lower(immutable_unaccent("video"."name")) % lower(immutable_unaccent(' + escapedSearch + ')) OR ' +
+                  'lower(immutable_unaccent("video"."name")) LIKE lower(immutable_unaccent(' + escapedLikeSearch + '))' +
+                  'UNION ALL ' +
+                  'SELECT "video"."id" FROM "video" LEFT JOIN "videoTag" ON "videoTag"."videoId" = "video"."id" ' +
+                  'INNER JOIN "tag" ON "tag"."id" = "videoTag"."tagId" ' +
+                  'WHERE "tag"."name" = ' + escapedSearch +
+                ')'
+              )
+            }
           }
-        }
-      )
+        )
+      } else {
+      const escapedHost = VideoModel.sequelize.escape(a[0])
+          whereAnd.push(
+            {
+              id: {
+                [ Sequelize.Op.in ]: Sequelize.literal(
+                  '(' +
+                    'SELECT "video"."id" AS "id" FROM "video' +
+                    'INNER JOIN "videoChannel" ON "videoChannel"."id" = "video"."channelId"' +
+                    'INNER JOIN "account" ON "account"."id" = "videoChannel"."accountId"' +
+                    'INNER JOIN "actor" ON "account"."actorId" = "actor"."id"' +
+                    'INNER JOIN "server" ON "server"."id" = "actor"."serverId"' +
+                    'WHERE "server"."id" = ' + escapedHost +
+                    'ORDER BY "video"."views" DESC' +
+                  ')'
+                )
+              }
+            }
+          )
+      }
 
       attributesInclude.push(createSimilarityAttribute('VideoModel.name', options.search))
     }
