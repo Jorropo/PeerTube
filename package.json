@@ -68,7 +68,9 @@
     "mocha": "mocha",
     "travis": "scripty",
     "release": "scripty",
-    "client-report": "scripty"
+    "client-report": "scripty",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -153,7 +155,8 @@
     "webtorrent": "^0.103.0",
     "winston": "3.2.1",
     "ws": "^7.0.0",
-    "youtube-dl": "^2.0.0"
+    "youtube-dl": "^2.0.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/apicache": "^1.2.0",
@@ -218,5 +221,6 @@
   "scripty": {
     "silent": true
   },
-  "sasslintConfig": "client/.sass-lint.yml"
+  "sasslintConfig": "client/.sass-lint.yml",
+  "snyk": true
 }
