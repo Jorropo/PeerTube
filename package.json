@@ -150,7 +150,7 @@
     "uuid": "^3.1.0",
     "validator": "^11.0.0",
     "webfinger.js": "^2.6.6",
-    "webtorrent": "^0.103.0",
+    "webtorrent": "^0.107.6",
     "winston": "3.2.1",
     "ws": "^7.0.0",
     "youtube-dl": "^2.0.0"
