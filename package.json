@@ -120,7 +120,7 @@
     "flat": "^4.1.0",
     "fluent-ffmpeg": "^2.1.0",
     "fs-extra": "^8.0.1",
-    "helmet": "^3.12.1",
+    "helmet": "^3.21.1",
     "http-signature": "^1.2.0",
     "ip-anonymize": "^0.1.0",
     "ipaddr.js": "1.9.1",
