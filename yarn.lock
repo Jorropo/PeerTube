@@ -1151,7 +1151,7 @@ callsites@^2.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
   integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
 
-camelcase@^4.0.0, camelcase@^4.1.0:
+camelcase@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
   integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
@@ -5217,12 +5217,10 @@ pascalcase@^0.1.1:
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
-password-generator@^2.0.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/password-generator/-/password-generator-2.2.0.tgz#fc75cff795110923e054a5a71623433240bf5e49"
-  integrity sha1-/HXP95URCSPgVKWnFiNDMkC/Xkk=
-  dependencies:
-    yargs-parser "^8.0.0"
+password-generator@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/password-generator/-/password-generator-2.3.1.tgz#e0795a832643e579a1a70240dc425129a8b40d94"
+  integrity sha512-VmvZlACyZUoFOR+B1QPMmhqU9xpPzeTywgLnko1Kr2/4VgOAI2rgmT8N8kCDBq/ga/WWL6TO+DVKaKKFQ/nOUQ==
 
 path-dirname@^1.0.0:
   version "1.0.2"
@@ -7801,13 +7799,6 @@ yargs-parser@^15.0.0:
   dependencies:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
-
-yargs-parser@^8.0.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.1.0.tgz#f1376a33b6629a5d063782944da732631e966950"
-  integrity sha512-yP+6QqN8BmrgW2ggLtTbdrOyBNSI7zBa4IykmiV5R1wl1JWNxQvWhMfMdmzIYtKU7oP3OOInY/tl2ov3BDjnJQ==
-  dependencies:
-    camelcase "^4.1.0"
 
 yargs-unparser@1.6.0:
   version "1.6.0"
