@@ -149,7 +149,7 @@
     "sequelize-typescript": "^1.0.0-beta.4",
     "sharp": "^0.23.1",
     "sitemap": "^5.0.0",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "srt-to-vtt": "^1.1.2",
     "tsconfig-paths": "^3.9.0",
     "useragent": "^2.3.0",
@@ -158,7 +158,7 @@
     "webfinger.js": "^2.6.6",
     "webtorrent": "^0.107.16",
     "winston": "3.2.1",
-    "ws": "^7.0.0",
+    "ws": "^7.4.6",
     "youtube-dl": "^2.0.0"
   },
   "devDependencies": {
