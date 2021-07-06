@@ -145,7 +145,7 @@
     "reflect-metadata": "^0.1.12",
     "request": "^2.81.0",
     "scripty": "^1.5.0",
-    "sequelize": "5.21.1",
+    "sequelize": "6.6.5",
     "sequelize-typescript": "^1.0.0-beta.4",
     "sharp": "^0.23.1",
     "sitemap": "^5.0.0",
